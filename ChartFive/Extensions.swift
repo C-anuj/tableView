@@ -11,13 +11,13 @@ import UIKit
 extension UIView {
     
     func setCellShadow() {
-        self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.layer.shadowOpacity = 1
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowRadius = 1.0
         self.layer.masksToBounds = false
         self.clipsToBounds = false
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 3
     }
     
     func setAnchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?,
@@ -36,7 +36,7 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
+            self.bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
         }
         
         if let right = right {
@@ -80,4 +80,11 @@ extension UIView {
         return rightAnchor
     }
     
+}
+
+public extension UIColor {
+    
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
+    }
 }

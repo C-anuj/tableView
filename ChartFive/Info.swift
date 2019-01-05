@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Info {
+    var image: String?
+    var title: String?
+}

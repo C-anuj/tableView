@@ -9,22 +9,30 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
+  var titleLabel: UILabel!
+  
+  init(title: String?) {
+    super.init(nibName: nil, bundle: nil)
+    self.title = title
+  }
+  
+  @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .red
+    titleLabel = UILabel()
+    titleLabel.text = title
+    titleLabel.backgroundColor = .blue
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(titleLabel)
+    NSLayoutConstraint.activate([
+      titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      ])
+  }
 }
