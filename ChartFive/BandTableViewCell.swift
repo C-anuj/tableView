@@ -30,7 +30,7 @@ class BandTableViewCell: UITableViewCell {
   }
   
   func setup() {
-    backgroundColor = UIColor(r: 245, g: 245, b: 245)
+    backgroundColor = UIColor.white
     contentView.addSubview(pictureImageView)
     contentView.addSubview(titleLabel)
     
@@ -39,22 +39,22 @@ class BandTableViewCell: UITableViewCell {
     
     NSLayoutConstraint.activate([
       contentView.topAnchor.constraint(equalTo: safeTopAnchor),
-      contentView.leftAnchor.constraint(equalTo: safeLeftAnchor),
+      contentView.leadingAnchor.constraint(equalTo: safeLeadingAnchor),
       contentView.bottomAnchor.constraint(equalTo: safeBottomAnchor),
-      contentView.rightAnchor.constraint(equalTo: safeRightAnchor),
+      contentView.trailingAnchor.constraint(equalTo: safeTrailingAnchor),
       contentView.heightAnchor.constraint(
         greaterThanOrEqualTo: pictureImageView.heightAnchor, constant: 8),
       contentView.heightAnchor.constraint(
         greaterThanOrEqualTo: titleLabel.heightAnchor, constant: 8),
       
-      pictureImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
+      pictureImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
       pictureImageView.heightAnchor.constraint(equalToConstant: 40),
       pictureImageView.widthAnchor.constraint(equalToConstant: 40),
       pictureImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
       
-      titleLabel.leftAnchor.constraint(equalTo: pictureImageView.rightAnchor, constant: 20),
+      titleLabel.leadingAnchor.constraint(equalTo: pictureImageView.trailingAnchor, constant: 20),
       titleLabel.heightAnchor.constraint(equalToConstant: 40),
-      titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 20),
+      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
       titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
       ])
   }
@@ -62,6 +62,4 @@ class BandTableViewCell: UITableViewCell {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
 }
-
