@@ -15,6 +15,7 @@
 		6B90CF5621C6082100FEAAC7 /* BandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B90CF5521C6082100FEAAC7 /* BandTableViewCell.swift */; };
 		6B90CF5821C6102C00FEAAC7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B90CF5721C6102C00FEAAC7 /* DetailViewController.swift */; };
 		6B90CF5A21C63BB800FEAAC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B90CF5921C63BB800FEAAC7 /* Assets.xcassets */; };
+		6B9EFE7621E1CBA0004592B9 /* BandsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9EFE7521E1CBA0004592B9 /* BandsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		6B90CF5521C6082100FEAAC7 /* BandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTableViewCell.swift; sourceTree = "<group>"; };
 		6B90CF5721C6102C00FEAAC7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B90CF5921C63BB800FEAAC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B9EFE7521E1CBA0004592B9 /* BandsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3637D0431F839B5B00558C1F /* AppDelegate.swift */,
 				3637D0551F83A89200558C1F /* Extensions.swift */,
 				3637D0451F839B5B00558C1F /* ViewController.swift */,
+				6B9EFE7521E1CBA0004592B9 /* BandsModel.swift */,
 				6B90CF5721C6102C00FEAAC7 /* DetailViewController.swift */,
 				6B90CF5521C6082100FEAAC7 /* BandTableViewCell.swift */,
 				6B90CF5921C63BB800FEAAC7 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				6B90CF5621C6082100FEAAC7 /* BandTableViewCell.swift in Sources */,
 				3637D0461F839B5B00558C1F /* ViewController.swift in Sources */,
+				6B9EFE7621E1CBA0004592B9 /* BandsModel.swift in Sources */,
 				3629E5291F84B3FA001DA0A7 /* Info.swift in Sources */,
 				6B90CF5821C6102C00FEAAC7 /* DetailViewController.swift in Sources */,
 				3637D0561F83A89200558C1F /* Extensions.swift in Sources */,
