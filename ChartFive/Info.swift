@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Info {
+struct Info: Equatable {
     var image: String?
     var title: String?
 }

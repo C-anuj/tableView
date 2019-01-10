@@ -60,14 +60,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: bandCellId,
                                              for: indexPath) as! BandTableViewCell
-    cell.pictureImageView.image = UIImage(named: BandsModel.bandsArray[indexPath.item].image!)
-    cell.titleLabel.text = BandsModel.bandsArray[indexPath.item].title
-    
-    if indexPath.section == 1 {
-      cell.pictureImageView.image = UIImage(named: BandsModel.songsArray[indexPath.item].image!)
-      cell.titleLabel.text = BandsModel.songsArray[indexPath.item].title
-    }
-    
+    cell.pictureImageView.image = nil
+    cell.populateCell(for: indexPath)
     return cell
   }
   

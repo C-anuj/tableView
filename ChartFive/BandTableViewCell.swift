@@ -9,6 +9,9 @@
 import UIKit
 
 class BandTableViewCell: UITableViewCell {
+
+  static var cache: NSCache<NSString, UIImage> = NSCache()
+  var infoModel: Info?
   
   let pictureImageView: UIImageView = {
     let iv = UIImageView()
@@ -26,6 +29,7 @@ class BandTableViewCell: UITableViewCell {
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+    BandTableViewCell.cache.countLimit = 200
     setup()
   }
   
@@ -57,6 +61,40 @@ class BandTableViewCell: UITableViewCell {
       titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
       titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
       ])
+  }
+
+  func populateCell(for indexPath: IndexPath) {
+    let model: Info = BandsModel.bandsArray[indexPath.item]
+    infoModel = model
+    var urlString = BandsModel.bandsArray[indexPath.item].image!
+    titleLabel.text = BandsModel.bandsArray[indexPath.item].title
+
+    if indexPath.section == 1 {
+      urlString = BandsModel.songsArray[indexPath.item].image!
+      titleLabel.text = BandsModel.songsArray[indexPath.item].title
+    }
+
+    let session = URLSession(configuration: URLSessionConfiguration.default)
+    let urlNSString: NSString = urlString as NSString
+    if let image = BandTableViewCell.cache.object(forKey: urlNSString) {
+      print("indexPath = \(indexPath), using cached image = \(image),  url = \(urlNSString)")
+      pictureImageView.image = image
+      return
+    }
+    let url = URL(string: urlString)
+    let dataTask = session.dataTask(with: url!) {  [weak self] (data, response, error) in
+      guard let infoModel = self?.infoModel else { return }
+      guard model == infoModel else { return }
+      guard let data = data else { return }
+      let image = UIImage(data: data)
+      let urlString: NSString = response!.url!.absoluteString as NSString
+      BandTableViewCell.cache.setObject(image!, forKey: urlString)
+      print("indexPath = \(indexPath), caching image = \(String(describing: image)),  url = \(urlString)")
+      DispatchQueue.main.async { [weak self] in
+        self?.pictureImageView.image = image
+      }
+    }
+    dataTask.resume()
   }
   
   required init?(coder aDecoder: NSCoder) {
