@@ -79,5 +79,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     return "Top Bands"
   }
-  
 }
